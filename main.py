@@ -5,8 +5,9 @@ def download_audio(url, output_path):
     try:
         yt = YouTube(url)
         audio_stream = yt.streams.filter(only_audio=True).first()
-        audio_stream.download(output_path=output_path, filename="audio.mp3")  # Save as "audio.mp3"
-        return f"{output_path}/audio.mp3"  # Return the path to the downloaded audio file
+        title = yt.title.replace(" ", "_")  # Replace spaces with underscores
+        audio_stream.download(output_path=output_path, filename=title+".mp3")  # Use video title as filename
+        return f"{output_path}/{title}.mp3"  # Return the path to the downloaded audio file
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred: {str(e)}")
 
