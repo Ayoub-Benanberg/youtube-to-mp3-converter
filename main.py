@@ -33,9 +33,6 @@ output_label.grid(row=1, column=0)
 output_entry = Entry(root, width=50)
 output_entry.grid(row=1, column=1)
 
-output_button = Button(root, text="Browse")
-output_button.grid(row=1, column=2)
-
 convert_button = Button(root, text="Convert", command=convert)
 convert_button.grid(row=2, column=1, pady=10)
 
